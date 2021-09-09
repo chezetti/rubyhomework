@@ -2,22 +2,22 @@
 
 # Task 1.
 class Greetings
-  def helloMaker
+  def self.helloMaker
     puts '-' * 80
     puts 'Доброго времени суток.'
     puts '-' * 80
     puts 'Введите имя: '
-    name = gets.chomp
+    name = gets
     puts 'Введите фамилию: '
-    surname = gets.chomp
+    surname = gets
     puts 'Введите возраст: '
-    age = gets.chomp
+    age = gets.to_i
     puts '-' * 80
     if age.to_i < 18
       puts "Привет, #{name.capitalize} #{surname.capitalize}.
       Тебе меньше 18 лет, но начать учиться программировать никогда не рано"
     else
-      puts "Привет, #{name} #{surname}. Самое время заняться делом!"
+      puts "Привет, #{name} #{surname}. \nСамое время заняться делом!"
     end
     puts '-' * 80
   end
@@ -25,11 +25,11 @@ end
 
 # Task 2.
 class Foobar
-  def fooBar
+  def self.fooBar
     puts 'Введите пару чисел: '
     figures = []
     (0..1).each do |i|
-      figures[i] = gets.chomp.to_i
+      figures[i] = gets.to_i
     end
     flag = false
     figures.each do |figure|
@@ -46,14 +46,3 @@ class Foobar
   end
 end
 
-class Main
-  def run
-    gr = Greetings.new
-    gr.helloMaker
-    foo = Foobar.new
-    foo.fooBar
-  end
-end
-
-main = Main.new
-main.run
