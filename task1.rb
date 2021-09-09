@@ -14,8 +14,7 @@ class Greetings
     age = gets.to_i
     puts '-' * 80
     if age.to_i < 18
-      puts "Привет, #{name.capitalize} #{surname.capitalize}.
-      Тебе меньше 18 лет, но начать учиться программировать никогда не рано"
+      puts "Привет, #{name.capitalize} #{surname.capitalize}.\nТебе меньше 18 лет, но начать учиться программировать никогда не рано"
     else
       puts "Привет, #{name} #{surname}. \nСамое время заняться делом!"
     end
@@ -45,4 +44,5 @@ class Foobar
     end
   end
 end
+
 
