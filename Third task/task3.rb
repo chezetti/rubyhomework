@@ -1,10 +1,8 @@
 def balance
-  balance = 100.0
   if File.exist?("balance.txt")
     f = File.open("balance.txt")
     balance = f.read.to_f
     f.close
-    "#{balance.to_f}"
   else
     puts "Файл не существует. Создать новый?"
     input = gets
@@ -18,6 +16,7 @@ def balance
   loop do
     puts "Нажмите B, чтобы проверить баланс \nНажмите D, чтобы внести деньги \nНажмите W, чтобы вывести деньги \nНажмите Q, чтобы выйти"
     choose = gets.chomp
+
     case choose.downcase
     when 'b'
       puts "Ваш баланс: #{balance}"
@@ -53,7 +52,7 @@ def balance
       f.close
       break
     else
-      puts 'Некоректно выбран пункт меню.'
+      puts 'Некорректно выбран пункт меню.'
     end
   end
 end
@@ -102,4 +101,3 @@ def menu
     end
   end
 end
-
