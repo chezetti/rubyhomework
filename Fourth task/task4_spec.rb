@@ -5,7 +5,7 @@ require 'stringio'
 
 require_relative 'task4'
 
-describe "Balance operations" do
+describe CashMachine do
 
   it 'should show balance with starting amount of money 100.0' do
     allow_any_instance_of(Kernel).to receive(:gets).and_return("B", "Q")
