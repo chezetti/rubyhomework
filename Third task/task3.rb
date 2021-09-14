@@ -3,14 +3,6 @@ def balance
     f = File.open("balance.txt")
     balance = f.read.to_f
     f.close
-  else
-    puts "Файл не существует. Создать новый?"
-    input = gets
-    if input == "Да"
-      File.open("balance.txt", "w") {|f| f.write(100.00) }
-    else
-      menu
-    end
   end
 
   loop do
@@ -98,6 +90,7 @@ def menu
     when 0
       break
     else
+      puts "Неверный пункт меню."
     end
   end
 end
