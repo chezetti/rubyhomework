@@ -8,6 +8,7 @@ module Resource
     loop do
       print 'Choose verb to interact with resources (GET/POST/PUT/DELETE) / q to exit: '
       verb = gets.chomp
+      puts verb
       break if verb == 'q'
 
       action = nil
@@ -40,7 +41,7 @@ class PostsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @posts.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       puts("#{id} - #{@posts[id]}")
     end
@@ -49,6 +50,7 @@ class PostsController
   def create
     puts('Введите текст поста:')
     text = gets.chomp
+    puts text
     @posts.append(text)
     puts("#{@posts.length - 1} #{text}")
   end
@@ -57,7 +59,7 @@ class PostsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @posts.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       puts('Введите текст нового поста:')
       text = gets.chomp
@@ -70,7 +72,7 @@ class PostsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @posts.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       @posts.delete_at(id)
     end
@@ -94,7 +96,7 @@ class CommentsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @comments.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       puts("#{id} - #{@comments[id]}")
     end
@@ -111,7 +113,7 @@ class CommentsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @comments.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       puts('Введите новый текст комментария:')
       text = gets.chomp
@@ -124,7 +126,7 @@ class CommentsController
     puts('Введите id:')
     id = gets.to_i
     if id >= @comments.length
-      puts('Некорентный id.')
+      puts('Некорректный id.')
     else
       @comments.delete_at(id)
     end
@@ -143,6 +145,7 @@ class Router
     loop do
       print 'Choose resource you want to interact (1 - Posts, 2 - Comments, q - Exit): '
       choice = gets.chomp
+      puts choice
 
       PostsController.connection(@routes['posts']) if choice == '1'
       CommentsController.connection(@routes['comments']) if choice == '2'
@@ -164,7 +167,3 @@ class Router
     }
   end
 end
-
-router = Router.new
-
-router.init
