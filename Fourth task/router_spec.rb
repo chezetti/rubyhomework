@@ -8,51 +8,91 @@ require_relative 'router'
 describe Router do
 
   it 'should create new post and show it' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("1", "POST", "Нулевой пост", "q", "q")
+    allow_any_instance_of(Router).to receive(:gets).and_return("1", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "q")
+    allow_any_instance_of(PostsController).to receive(:gets).and_return("Нулевой пост")
     router = Router.new
-    expect(router.init).to eql("0 - Нулевой пост")
+    expect(router.init)
+    expect do
+      PostsController.new.create
+    end.to output("Введите текст поста:\nНулевой пост\n0 - Нулевой пост\n").to_stdout
   end
 
-  it 'should return post by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("1", "GET", "index", "0", "q", "q")
+  it 'should return post by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("1", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "GET", "show", "q")
+    allow_any_instance_of(PostsController).to receive(:gets).and_return("Нулевой пост", "0")
     router = Router.new
-    expect(router.init).to eql("0 - Нулевой пост")
+    expect(router.init)
+    expect do
+      PostsController.new.show
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
-  it 'should update post by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("1", "PUT", "0", "Новый нулевой пост", "q", "q")
+  it 'should update post by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("1", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "PUT", "q")
+    allow_any_instance_of(PostsController).to receive(:gets).and_return("Нулевой пост", "0", "Новый нулевой пост")
     router = Router.new
-    expect(router.init).to eql("0 - Новый нулевой пост")
+    expect(router.init)
+    expect do
+      PostsController.new.update
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
-  it 'should delete post by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("1", "DELETE", "0", "q", "q")
+  it 'should delete post by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("1", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "DELETE", "q")
+    allow_any_instance_of(PostsController).to receive(:gets).and_return("Нулевой пост", "0")
     router = Router.new
-    expect(router.init).to eql("")
+    expect(router.init)
+    expect do
+      PostsController.new.destroy
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
   it 'should create new comment and show it' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("2", "POST", "Нулевой пост", "q", "q")
+    allow_any_instance_of(Router).to receive(:gets).and_return("2", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "q")
+    allow_any_instance_of(CommentsController).to receive(:gets).and_return("Нулевой комментарий")
     router = Router.new
-    expect(router.init).to eql("0 - Нулевой пост")
+    expect(router.init)
+    expect do
+      CommentsController.new.create
+    end.to output("Введите комментарий:\nНулевой комментарий\n0 - Нулевой комментарий\n").to_stdout
   end
 
-  it 'should return comment by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("2", "GET", "index", "0", "q", "q")
+  it 'should return comment by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("2", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "GET", "show", "q")
+    allow_any_instance_of(CommentsController).to receive(:gets).and_return("Нулевой комментарий", "0")
     router = Router.new
-    expect(router.init).to eql("0 - Нулевой пост")
+    expect(router.init)
+    expect do
+      CommentsController.new.show
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
-  it 'should update comment by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("2", "PUT", "0", "Новый нулевой пост", "q", "q")
+  it 'should update comment by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("2", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "PUT", "q")
+    allow_any_instance_of(CommentsController).to receive(:gets).and_return("Нулевой комментарий", "0", "Новый нулевой комментарий")
     router = Router.new
-    expect(router.init).to eql("0 - Новый нулевой пост")
+    expect(router.init)
+    expect do
+      CommentsController.new.update
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
-  it 'should delete comment by index' do
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("2", "DELETE", "0", "q", "q")
+  it 'should delete comment by id' do
+    allow_any_instance_of(Router).to receive(:gets).and_return("2", "q")
+    allow_any_instance_of(Resource).to receive(:gets).and_return("POST", "DELETE", "q")
+    allow_any_instance_of(CommentsController).to receive(:gets).and_return("Нулевой комментарий", "0")
     router = Router.new
-    expect(router.init).to eql("")
+    expect(router.init)
+    expect do
+      CommentsController.new.destroy
+    end.to output("Введите id:\n0\nНекорректный id.\n").to_stdout
   end
 
 end

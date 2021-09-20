@@ -16,6 +16,7 @@ module Resource
       if verb == 'GET'
         print 'Choose action (index/show) / q to exit: '
         action = gets.chomp
+        puts action
         break if action == 'q'
       end
 
@@ -33,13 +34,14 @@ class PostsController
 
   def index
     @posts.each_with_index do |post, index|
-      puts("#{index} #{post}")
+      puts("#{index} - #{post}")
     end
   end
 
   def show
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @posts.length
       puts('Некорректный id.')
     else
@@ -52,25 +54,27 @@ class PostsController
     text = gets.chomp
     puts text
     @posts.append(text)
-    puts("#{@posts.length - 1} #{text}")
+    puts "#{@posts.length - 1} - #{text}"
   end
 
   def update
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @posts.length
       puts('Некорректный id.')
     else
       puts('Введите текст нового поста:')
       text = gets.chomp
       @posts[id] = text
-      puts("#{id} - #{@posts[id]}")
+      return puts("#{id} - #{@posts[id]}")
     end
   end
 
   def destroy
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @posts.length
       puts('Некорректный id.')
     else
@@ -88,43 +92,47 @@ class CommentsController
 
   def index
     @comments.each_with_index do |comment, index|
-      puts("#{index} #{comment}")
+      return puts("#{index} #{comment}")
     end
   end
 
   def show
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @comments.length
       puts('Некорректный id.')
     else
-      puts("#{id} - #{@comments[id]}")
+      return puts("#{id} - #{@comments[id]}")
     end
   end
 
   def create
     puts('Введите комментарий:')
     text = gets.chomp
+    puts text
     @comments.append(text)
-    puts("#{@comments.length - 1} #{text}")
+    return puts("#{@comments.length - 1} - #{text}")
   end
 
   def update
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @comments.length
       puts('Некорректный id.')
     else
       puts('Введите новый текст комментария:')
       text = gets.chomp
       @comments[id] = text
-      puts("#{id} #{@comments[id]}")
+      return puts("#{id} #{@comments[id]}")
     end
   end
 
   def destroy
     puts('Введите id:')
     id = gets.to_i
+    puts id
     if id >= @comments.length
       puts('Некорректный id.')
     else
