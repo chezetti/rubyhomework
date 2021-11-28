@@ -1,3 +1,4 @@
+# task 3
 def balance
   if File.exist?("balance.txt")
     f = File.open("balance.txt")
@@ -49,6 +50,7 @@ def balance
   end
 end
 
+# task 2
 def read
   file = File.open('input.txt')
   students = file.readlines.map { |line| line.chomp }
@@ -74,12 +76,100 @@ def read
   file.close
 end
 
+# task 1
+STUDENTS_LIST = 'input.txt'
+BUFFER = 'output.txt'
+
+def index
+  File.foreach(STUDENTS_LIST) { |student| puts student }
+end
+
+def where(pattern)
+  File.foreach(STUDENTS_LIST).with_index do |student, index|
+    @student_id = index if student.include?(pattern)
+  end
+  @student_id
+end
+
+def update(id, text)
+  file = File.open(BUFFER, 'w')
+  
+  File.foreach(STUDENTS_LIST).with_index do |student, index|
+    file.puts(id == index ? text : student)
+  end
+
+  file.close
+  File.write(STUDENTS_LIST, File.read(BUFFER))
+
+  File.delete(BUFFER) if File.exist?(BUFFER)
+end
+
+def delete(id)
+  file = File.open(BUFFER, "w")
+  File.foreach(STUDENTS_LIST).with_index do |student, index|
+      file.puts student if id != index
+  end
+
+  file.close
+  File.write(STUDENTS_LIST, File.read(BUFFER))
+
+  File.delete(BUFFER) if File.exist?(BUFFER)
+end
+
+def find(id)
+  File.foreach(STUDENTS_LIST).with_index do |student, index|
+    puts student if id == index
+  end
+end
+
+
+def crud_menu
+  loop do
+    puts 'Меню для работы с файлом: '
+    puts '1. Вывод данных файла.'
+    puts '2. Вывод опередленной строки.'
+    puts '3. Вывод строк с паттерном.'
+    puts '4. Обновление опредленной строки.'
+    puts '5. Удаление строки.'
+    puts '0. Выход.'
+
+    choose = gets.to_i
+    case choose
+    when 1
+      index
+    when 2
+      puts 'Введите id: '
+      id = gets
+      find(id)
+    when 3
+      puts 'Введите паттерн: '
+      pattern = gets
+      where(pattern)
+    when 4
+      puts 'Введите id: '
+      id = gets
+      puts 'Введите текст: '
+      text = gets
+      update(id, text)
+    when 5
+      puts 'Введите id: '
+      id = gets
+      delete(id)
+    when 0
+      menu
+    else
+      puts "Неверный пункт меню."
+    end
+  end
+end
+
 def menu
   loop do
     puts "Меню: "
-    puts '1. Банковский счёт'
-    puts '2. Чтение из файла'
-    puts '0. Выход'
+    puts '1. Банковский счёт.'
+    puts '2. Чтение из файла.'
+    puts '3. Меню для работы с файлами.'
+    puts '0. Выход.'
 
     choose = gets.to_i
     case choose
@@ -87,6 +177,8 @@ def menu
       balance
     when 2
       read
+    when 3
+      crud_menu
     when 0
       break
     else
@@ -94,3 +186,5 @@ def menu
     end
   end
 end
+
+menu
