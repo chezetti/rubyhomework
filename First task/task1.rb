@@ -64,5 +64,73 @@
     end
   end
 
+  def array_output(array)
+    puts 'Введенные города: '
+    puts array.join(', ') + '.'
+  end
 
+  cities = %w[Москва Санкт-Петербург Воронеж]
+
+  array_output(cities)
+
+  def round_figures(number)
+    remainderOfFive = number % 5;
+
+    if remainderOfFive == 0
+      puts number
+    elsif remainderOfFive >= 2.5
+      puts number - remainderOfFive + 5;
+     else
+      if remainderOfFive < 2.5
+        puts number - remainderOfFive
+      end
+    end
+  end
+
+  round_figures(27)
+  round_figures(27.8)
+  round_figures(41.7)
+
+  def case_naming(number)
+    im = [1]
+    rod = [2, 3, 4]
+    rodm = [5, 6, 7, 8, 9, 0]
+
+    im.each do |i|
+      if number % 10 == i
+        puts number.to_s + ' компьютер'
+      end
+      end
+      rod.each do |i|
+        if number % 10 == i
+          puts number.to_s + ' компьютера'
+        end
+        end
+        rodm.each do |i|
+          if number % 10 == i
+            puts number.to_s + ' компьютеров'
+        end
+    end
+  end
+
+  case_naming(25)
+  case_naming(41)
+  case_naming(1048)
+  case_naming(54)
+
+  def prime_number(number)
+    if number > 1
+      for i in 2..number
+      if number % i == 0
+        return puts "Это не простое число"
+      else
+        return puts "Это простое число"
+        end
+      end
+    else
+      return puts "Это не простое число"
+    end
+  end
+
+  prime_number(5)
 

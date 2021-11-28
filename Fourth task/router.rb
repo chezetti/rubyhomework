@@ -175,3 +175,6 @@ class Router
     }
   end
 end
+
+router = Router.new
+router.init
