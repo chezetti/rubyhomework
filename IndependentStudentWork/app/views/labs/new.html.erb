@@ -1,0 +1,8 @@
+<h1>Creating new lab</h1>
+<%=form_with model: @lab do |f|  %>
+  <h2>Title</h2>
+<%=f.text_field :title %>
+  <h2>Description</h2>
+<%=f.text_area :description%>
+<%=f.submit%>
+<%end %>
