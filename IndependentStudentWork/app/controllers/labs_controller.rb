@@ -1,45 +1,67 @@
 class LabsController < ApplicationController
+  before_action :find_lab, only: %i[show update destroy edit mark grade]
+
   def index
-    @LaboratiryWorks=Lab.all
+    @labs = Lab.all
   end
+
   def show
-    @LaboratiryWork=Lab.find(params[:id])
   end
+
   def new
-    @LaboratiryWork=Lab.new
+    @lab = Lab.new
   end
+
   def create
-    lab=Lab.new(params.require(:lab).permit(:title,:description))
-    lab.user_id=1
-    if lab.save
-      redirect_to root_path
+    @lab = Lab.new(lab_params)
+    @lab.user_id = 1
+
+    if @lab.save
+      redirect_to root_url
+      flash[:success] = "Лабораторная успешно создана"
     else
-      redirect_to root_path
-      flash[:DANGER] = "Laboratiry Work was not created! "
+      render 'new'
     end
   end
+
   def edit
-    @LaboratiryWork=Lab.find(params[:id])
   end
+
   def update
-    @LaboratiryWork=Lab.find(params[:id])
-    @LaboratiryWork.update(params.require(:lab).permit(:title,:description))
-    redirect_to root_url
-  end
-  def destroy
-    @LaboratiryWork=Lab.find(params[:id])
-    @LaboratiryWork.destroy
-    redirect_to root_url
-  end
-  def mark
-    @LaboratiryWork=Lab.find(params[:id])
-  end
-  def grade
-    @LaboratiryWork=Lab.find(params[:id])
-    if @LaboratiryWork.update(params.permit(:grade))
-    redirect_to root_url
+    if (@lab.update(lab_params))
+      redirect_to root_url
+      flash[:success] = "Лабораторная успешно обновлена"
     else
-      render :mark
-      end
+      render 'edit'
+    end
+  end
+
+  def mark
+  end
+
+  def grade
+    if (@lab.update(params.permit(:grade)))
+      redirect_to root_url
+      flash[:success] = "Лабораторная успешно оценена"
+    else
+      render 'mark'
+    end
+  end
+
+  def destroy
+    @lab.destroy
+
+    redirect_to action: :index
+    flash[:success] = "Лабораторная успешно удалена"
+  end
+
+  private
+
+  def find_lab
+    @lab = Lab.find params[:id]
+  end
+
+  def lab_params
+    params.require(:lab).permit(:title, :description)
   end
 end
