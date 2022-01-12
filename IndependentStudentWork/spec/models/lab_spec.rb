@@ -5,5 +5,5 @@ RSpec.describe Lab, type: :model do
 
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_length_of(:title).is_at_most(250) }
-  it { is_expected.to validate_length_of(:description).is_at_most(500) }
+  it { is_expected.to validate_length_of(:description).is_at_most(250) }
 end

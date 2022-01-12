@@ -1,185 +1,82 @@
-Started GET "/" for 127.0.0.1 at 2021-12-21 18:50:36 +0300
-  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-        bin/rails db:migrate RAILS_ENV=development
-
-You have 4 pending migrations:
-
-20211108200852_create_labs.rb
-20211112202115_create_users.rb
-20211112203509_add_user_id.rb
-20211112210212_unique_email.rb
-
-
-):
-  
-activerecord (6.1.4.4) lib/active_record/migration.rb:625:in `check_pending!'
-activerecord (6.1.4.4) lib/active_record/migration.rb:590:in `block (2 levels) in call'
-activesupport (6.1.4.4) lib/active_support/file_update_checker.rb:83:in `execute'
-activerecord (6.1.4.4) lib/active_record/migration.rb:595:in `block in call'
-activerecord (6.1.4.4) lib/active_record/migration.rb:587:in `synchronize'
-activerecord (6.1.4.4) lib/active_record/migration.rb:587:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
-activesupport (6.1.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
-web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
-web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
-web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (6.1.4.4) lib/rails/rack/logger.rb:37:in `call_app'
-railties (6.1.4.4) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:37:in `tagged'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:99:in `tagged'
-railties (6.1.4.4) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (6.1.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/static.rb:24:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/host_authorization.rb:119:in `call'
-rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
-webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
-rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
-railties (6.1.4.4) lib/rails/engine.rb:539:in `call'
-puma (5.5.2) lib/puma/configuration.rb:249:in `call'
-puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
-puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
-puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
-puma (5.5.2) lib/puma/server.rb:447:in `process_client'
-puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
-Started GET "/" for 127.0.0.1 at 2021-12-21 18:50:48 +0300
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-        bin/rails db:migrate RAILS_ENV=development
-
-You have 4 pending migrations:
-
-20211108200852_create_labs.rb
-20211112202115_create_users.rb
-20211112203509_add_user_id.rb
-20211112210212_unique_email.rb
-
-
-):
-  
-activerecord (6.1.4.4) lib/active_record/migration.rb:625:in `check_pending!'
-activerecord (6.1.4.4) lib/active_record/migration.rb:590:in `block (2 levels) in call'
-activesupport (6.1.4.4) lib/active_support/file_update_checker.rb:83:in `execute'
-activerecord (6.1.4.4) lib/active_record/migration.rb:595:in `block in call'
-activerecord (6.1.4.4) lib/active_record/migration.rb:587:in `synchronize'
-activerecord (6.1.4.4) lib/active_record/migration.rb:587:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
-activesupport (6.1.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
-web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
-web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
-web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (6.1.4.4) lib/rails/rack/logger.rb:37:in `call_app'
-railties (6.1.4.4) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:37:in `tagged'
-activesupport (6.1.4.4) lib/active_support/tagged_logging.rb:99:in `tagged'
-railties (6.1.4.4) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (6.1.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/static.rb:24:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-actionpack (6.1.4.4) lib/action_dispatch/middleware/host_authorization.rb:119:in `call'
-rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
-webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
-rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
-railties (6.1.4.4) lib/rails/engine.rb:539:in `call'
-puma (5.5.2) lib/puma/configuration.rb:249:in `call'
-puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
-puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
-puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
-puma (5.5.2) lib/puma/server.rb:447:in `process_client'
-puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
-  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateLabs (20211108200852)
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "grade" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211108200852"]]
-  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateUsers (20211112202115)
+Migrating to CreateLabs (20211103104628)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211112202115"]]
-  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
-Migrating to AddUserId (20211112203509)
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "grade" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211103104628"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeGradeToBeStringInLabs (20211103171114)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "labs" ADD "user_id" integer[0m
   [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
-  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabs" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "grade" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alabs" ("id","title","description","grade","created_at","updated_at")
+                     SELECT "id","title","description","grade","created_at","updated_at" FROM "labs"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "labs"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "grade" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "labs" ("id","title","description","grade","created_at","updated_at")
+                     SELECT "id","title","description","grade","created_at","updated_at" FROM "alabs"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "alabs"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211103171114"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20211103173432)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211103173432"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddColumnUserId (20211103175806)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "labs" ADD "user_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211103175806"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddForeignKey (20211103180103)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alabs" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "grade" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer DEFAULT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "alabs" ("id","title","description","grade","created_at","updated_at","user_id")
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alabs" ("id","title","description","grade","created_at","updated_at","user_id")
                      SELECT "id","title","description","grade","created_at","updated_at","user_id" FROM "labs"[0m
-  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "labs"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "grade" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_b6a9990324"
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "labs"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "grade" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_b6a9990324"
 FOREIGN KEY ("user_id")
   REFERENCES "users" ("id")
 )[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "labs" ("id","title","description","grade","created_at","updated_at","user_id")
                      SELECT "id","title","description","grade","created_at","updated_at","user_id" FROM "alabs"[0m
-  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "alabs"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alabs"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211112203509"]]
-  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
-Migrating to UniqueEmail (20211112210212)
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211103180103"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211112210212"]]
-  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-12 18:14:35.955388"], ["updated_at", "2022-01-12 18:14:35.955388"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-12-21 16:01:44.501758"], ["updated_at", "2021-12-21 16:01:44.501758"]]
-  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Riza"], ["last_name", "Izmailov"], ["email", "rizaizmailov@gmail.com"], ["created_at", "2022-01-12 18:14:41.046186"], ["updated_at", "2022-01-12 18:14:41.046186"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:14:46 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:01:57 +0300
-  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.5ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1188)
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1780)
 [Webpacker] Compiling...
 [Webpacker] Compilation failed:
 yarn run v1.22.17
@@ -188,12 +85,12 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 
 error Command "webpack" not found.
 
-  Rendered layout layouts/application.html.erb (Duration: 1701.2ms | Allocations: 18449)
-Completed 500 Internal Server Error in 1753ms (ActiveRecord: 0.5ms | Allocations: 23032)
+  Rendered layout layouts/application.html.erb (Duration: 1341.9ms | Allocations: 6666)
+Completed 500 Internal Server Error in 1374ms (ActiveRecord: 0.3ms | Allocations: 13236)
 
 
   
-ActionView::Template::Error (Webpacker can't find application.js in /home/chezetti/Ruby/rubyhomework/IndependentStudentWork/public/packs/manifest.json. Possible causes:
+ActionView::Template::Error (Webpacker can't find application.js in /home/chezetti/Ruby/RubyLabs/CPC1/public/packs/manifest.json. Possible causes:
 1. You want to set webpacker.yml value of compile to true for your environment
    unless you are using the `webpack -w` or the webpack-dev-server.
 2. webpack has not yet re-run to reflect updates.
@@ -205,333 +102,667 @@ Your manifest contains:
 ):
      7:     <%= csp_meta_tag %>
      8: 
-     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    11:   </head>
-    12: 
-    13:   <body>
+    11: 
+    12:     <style>
+    13:       a {
   
 app/views/layouts/application.html.erb:10
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:07:05 +0300
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:16:07 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1188)
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1675)
 [Webpacker] Compiling...
-[Webpacker] Compiled all packs in /home/chezetti/Ruby/rubyhomework/IndependentStudentWork/public/packs
-[Webpacker] Hash: 2034dd941d5476d8645c
+[Webpacker] Compiled all packs in /home/chezetti/Ruby/RubyLabs/CPC1/public/packs
+[Webpacker] Hash: e2a8a876c5815bee1e21
 Version: webpack 4.46.0
-Time: 2819ms
-Built at: 12/21/2021 7:07:11 PM
+Time: 2310ms
+Built at: 01/12/2022 9:16:12 PM
                                      Asset       Size       Chunks                         Chunk Names
-    js/application-3dd0dc24d9c39bc09227.js    125 KiB  application  [emitted] [immutable]  application
-js/application-3dd0dc24d9c39bc09227.js.map    139 KiB  application  [emitted] [dev]        application
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
                              manifest.json  364 bytes               [emitted]              
-Entrypoint application = js/application-3dd0dc24d9c39bc09227.js js/application-3dd0dc24d9c39bc09227.js.map
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
 [./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
 [./app/javascript/channels/index.js] 211 bytes {application} [built]
 [./app/javascript/packs/application.js] 492 bytes {application} [built]
 [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
     + 3 hidden modules
 
-  Rendered layout layouts/application.html.erb (Duration: 5495.5ms | Allocations: 7396)
-Completed 200 OK in 5520ms (Views: 5501.9ms | ActiveRecord: 0.3ms | Allocations: 11250)
+  Rendered layout layouts/application.html.erb (Duration: 4508.3ms | Allocations: 5784)
+Completed 200 OK in 4524ms (Views: 4512.2ms | ActiveRecord: 0.2ms | Allocations: 11044)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:07:16 +0300
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:16:16 +0300
 Processing by LabsController#new as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 3374)
+  Rendered labs/_form.html.erb (Duration: 4.0ms | Allocations: 1451)
+  Rendered labs/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1818)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 6325)
-Completed 200 OK in 37ms (Views: 28.4ms | ActiveRecord: 1.0ms | Allocations: 10296)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4094)
+Completed 200 OK in 20ms (Views: 11.2ms | ActiveRecord: 1.0ms | Allocations: 8533)
 
 
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:08:29 +0300
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:16:23 +0300
 Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Laba 6", "description"=>"Add tests."}, "commit"=>"Create Lab"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"JSK", "description"=>"s"}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.4ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "JSK"], ["description", "s"], ["created_at", "2022-01-12 18:16:23.983591"], ["updated_at", "2022-01-12 18:16:23.983591"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
 Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 44ms (ActiveRecord: 1.1ms | Allocations: 13025)
+Completed 302 Found in 37ms (ActiveRecord: 4.1ms | Allocations: 13114)
 
 
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:08:29 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:16:24 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 708)
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 910)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3659)
-Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 4056)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 3176)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 3725)
 
 
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:08:47 +0300
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:16:27 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.9ms | Allocations: 365)
+  Rendered labs/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 461)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2653)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 3138)
+
+
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:16:30 +0300
+Processing by LabsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"AS", "description"=>"g"}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.3ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "AS"], ["description", "g"], ["created_at", "2022-01-12 18:16:30.141892"], ["updated_at", "2022-01-12 18:16:30.141892"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 14ms (ActiveRecord: 3.4ms | Allocations: 3569)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:16:30 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
   [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 702)
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 959)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3655)
-Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3163)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 3633)
 
 
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:08:49 +0300
-Processing by LabsController#index as HTML
+Started GET "/labs/1" for 127.0.0.1 at 2022-01-12 21:18:05 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
   Rendering layout layouts/application.html.erb
-  Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 702)
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 328)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3654)
-Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 2548)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 3878)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:08:51 +0300
-Processing by LabsController#new as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 390)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3338)
-Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 3732)
-
-
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:08:58 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Lab 1", "description"=>"Task 1"}, "commit"=>"Create Lab"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 11ms (ActiveRecord: 0.4ms | Allocations: 3130)
-
-
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:08:58 +0300
+Started GET "/labs" for 127.0.0.1 at 2022-01-12 21:18:07 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
   [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 707)
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 962)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 3658)
-Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 4054)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3166)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 3638)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:13:39 +0300
-Processing by LabsController#new as HTML
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:18:08 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
   Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 390)
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1010)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3338)
-Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 3731)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3102)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 4233)
 
 
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:13:41 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"2", "description"=>"2"}, "commit"=>"Create Lab"}
+Started POST "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:18:11 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"A", "commit"=>"Сохранить", "id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.3ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "A"], ["updated_at", "2022-01-12 18:18:11.197204"], ["id", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
 Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 24ms (ActiveRecord: 0.7ms | Allocations: 3110)
+Completed 302 Found in 17ms (ActiveRecord: 3.4ms | Allocations: 4352)
 
 
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:13:41 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:18:11 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 962)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3165)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 3636)
+
+
+Started GET "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:12 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.6ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 2874)
+Completed 200 OK in 25ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 3880)
+
+
+Started POST "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:15 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"b", "commit"=>"Сохранить", "id"=>"2"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.5ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "b"], ["updated_at", "2022-01-12 18:18:15.837488"], ["id", 2]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 19ms (ActiveRecord: 3.2ms | Allocations: 4168)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:18:15 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 965)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3168)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 3638)
+
+
+Started GET "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:18 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.8ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2857)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 3863)
+
+
+Started POST "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:20 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"1", "commit"=>"Сохранить", "id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.5ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "1"], ["updated_at", "2022-01-12 18:18:20.066671"], ["id", 2]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 21ms (ActiveRecord: 6.7ms | Allocations: 4163)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:18:20 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 965)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3168)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.2ms | Allocations: 3638)
+
+
+Started GET "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:20 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 3.3ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 2857)
+Completed 200 OK in 24ms (Views: 16.4ms | ActiveRecord: 0.3ms | Allocations: 3863)
+
+
+Started POST "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:18:21 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"B", "commit"=>"Сохранить", "id"=>"2"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (1.0ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "B"], ["updated_at", "2022-01-12 18:18:21.991336"], ["id", 2]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 43ms (ActiveRecord: 6.8ms | Allocations: 4170)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:18:22 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
   [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 706)
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 966)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3655)
-Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.4ms | Allocations: 4050)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 3186)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 3657)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:13:46 +0300
-Processing by LabsController#new as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 390)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3338)
-Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 3731)
-
-
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:13:48 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Ad", "description"=>"DS"}, "commit"=>"Create Lab"}
+Started DELETE "/labs/2" for 127.0.0.1 at 2022-01-12 21:18:25 +0300
+Processing by LabsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mLab Destroy (0.4ms)[0m  [1m[31mDELETE FROM "labs" WHERE "labs"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
 Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 9ms (ActiveRecord: 0.3ms | Allocations: 3113)
+Completed 302 Found in 15ms (ActiveRecord: 4.0ms | Allocations: 3137)
 
 
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:13:48 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:18:25 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
   [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 706)
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 843)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 3655)
-Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.1ms | Allocations: 4050)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3063)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 3532)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:17:49 +0300
-Processing by LabsController#new as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 390)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3350)
-Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 3755)
-
-
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:17:51 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"aaaaaaaaaaaaaaa", "description"=>"aaaaaaaaaaaaaaaaaaa"}, "commit"=>"Create Lab"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 9ms (ActiveRecord: 0.4ms | Allocations: 3109)
-
-
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:17:51 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:20:39 +0300
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
   [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 707)
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 840)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3656)
-Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 4051)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3061)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 3468)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:18:17 +0300
-Processing by LabsController#new as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 390)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3338)
-Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 3731)
-
-
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:18:20 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"ASD", "description"=>"ASDASDASDA"}, "commit"=>"Create Lab"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-Redirected to http://127.0.0.1:3000/
-Completed 302 Found in 10ms (ActiveRecord: 0.5ms | Allocations: 3109)
-
-
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:18:20 +0300
-Processing by LabsController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 706)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3655)
-Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 4050)
-
-
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:46:29 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:21:37 +0300
   [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1188)
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 5463)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 6147)
-Completed 200 OK in 49ms (Views: 26.5ms | ActiveRecord: 0.2ms | Allocations: 12646)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 8275)
+Completed 200 OK in 47ms (Views: 25.9ms | ActiveRecord: 1.2ms | Allocations: 13658)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:46:31 +0300
-Processing by LabsController#new as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1966)
-[Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4921)
-Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 0.8ms | Allocations: 8890)
-
-
-Started POST "/labs" for 127.0.0.1 at 2021-12-21 19:46:33 +0300
-Processing by LabsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"123", "description"=>"213213"}, "commit"=>"Create Lab"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
-  ↳ app/controllers/labs_controller.rb:14:in `create'
-Redirected to http://localhost:3000/
-Completed 302 Found in 16ms (ActiveRecord: 1.0ms | Allocations: 7009)
-
-
-Started GET "/" for 127.0.0.1 at 2021-12-21 19:46:33 +0300
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:24:05 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering labs/index.html.erb within layouts/application
-  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
-  ↳ app/views/labs/index.html.erb:9
-  Rendered labs/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 708)
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5466)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3659)
-Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 4056)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8281)
+Completed 200 OK in 37ms (Views: 22.7ms | ActiveRecord: 0.9ms | Allocations: 13664)
 
 
-Started GET "/labs/new" for 127.0.0.1 at 2021-12-21 19:46:34 +0300
-Processing by LabsController#new as HTML
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:24:38 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
   Rendering layout layouts/application.html.erb
-  Rendering labs/new.html.erb within layouts/application
-  Rendered labs/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 390)
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5423)
 [Webpacker] Everything's up-to-date. Nothing to do
-  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3342)
-Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 3732)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 8235)
+Completed 200 OK in 42ms (Views: 25.9ms | ActiveRecord: 1.2ms | Allocations: 13618)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:25:12 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3794)
+Completed 200 OK in 23ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 8476)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:25:30 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.3ms | Allocations: 774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2880)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 4067)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:25:31 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1175)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3379)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 4015)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:25:56 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1324)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3855)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 5196)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:26:03 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1041)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3133)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.3ms | Allocations: 4345)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:26:45 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 3555)
+Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 0.2ms | Allocations: 5440)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:26:50 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3577)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 5618)
+
+
+Started GET "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:26:55 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3555)
+Completed 200 OK in 18ms (Views: 11.1ms | ActiveRecord: 0.4ms | Allocations: 5565)
+
+
+Started POST "/labs/1/mark" for 127.0.0.1 at 2022-01-12 21:27:02 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"A", "commit"=>"Сохранить", "id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 36ms (ActiveRecord: 1.8ms | Allocations: 12857)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:27:02 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3462)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 4164)
+
+
+Started GET "/labs/1/edit" for 127.0.0.1 at 2022-01-12 21:27:05 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 2.3ms | Allocations: 1002)
+  Rendered labs/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3624)
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 4799)
+
+
+Started PATCH "/labs/1" for 127.0.0.1 at 2022-01-12 21:27:18 +0300
+Processing by LabsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"JSK", "description"=>"s"}, "commit"=>"Сохранить", "id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.8ms | Allocations: 3639)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:27:18 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 847)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3051)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 3549)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:28:20 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3854)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 5224)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:39:28 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 5 pending migrations:
+
+20220112104628_create_labs.rb
+20220112171114_change_grade_to_be_string_in_labs.rb
+20220112173432_create_users.rb
+20220112175806_add_column_user_id.rb
+20220112180103_add_foreign_key.rb
+
+
+):
+  
+activerecord (6.1.4.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4.1) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (6.1.4.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Riza"], ["last_name", "Izmailov"], ["email", "rizaizmailov@gmail.com"], ["created_at", "2022-01-12 18:45:11.424290"], ["updated_at", "2022-01-12 18:45:11.424290"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:45:16 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 5421)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 8233)
+Completed 200 OK in 42ms (Views: 26.8ms | ActiveRecord: 1.0ms | Allocations: 13645)
 
 

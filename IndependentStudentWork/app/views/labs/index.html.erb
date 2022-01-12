@@ -1,21 +1,30 @@
-<h1>Labs</h1>
-<% flash.each do |msg| %>
+<h1 style="text-align: center"><b>Учёт лабораторных работ</b></h1><br>
 
+<button type="button" class="btn btn-outline-primary"><%= link_to "Добавить лабораторную работу", new_lab_path%></button><br><br>
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
     <%= msg %>
-
+  </div>
 <% end %>
 
-<h1><%=link_to 'Create lab', new_lab_path %></h1>
-<%@labs.each do |l| %>
-  <h2>Title<br>
-<%=l.title %></h2>
-  <h2>Description</h2>
-  <%=l.description %>
-  <h2>Grade<br>
-  <%=l.grade%></h2>
-  <h2>Autor's email: <%=l.user%></h2>
-  <%=link_to 'Show lab', lab_path(l) %>
-  <%=link_to 'Grade lab', mark_lab_path(l) %>
-  <%=link_to 'Edit lab', edit_lab_path(l) %>
-  <%=link_to 'Delete lab', lab_path(l), method: :delete, data: {confirm: 'Are you sure?'} %>
-<%end %>
+<table class="table">
+  <thead>
+    <th scope="col">Название</th>
+    <th scope="col">Описание</th>
+    <th scope="col">Оценка</th>
+  </thead>
+
+  <tbody>
+    <% @labs.each do |lab| %>
+      <tr>
+        <td><%= lab.title %></td>
+        <td><%= lab.description %></td>
+        <td><%= lab.grade %></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to "Изменить", edit_lab_path(lab) %></button></td>
+        <td><button type="button" class="btn btn-outline-warning"><%= link_to "Оценить", mark_lab_path(lab) %></button></td>
+        <td><button type="button" class="btn btn-outline-danger"><%= link_to "Удалить", lab_path(lab), method: :delete, data: {confirm: "Вы уверены?"} %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
