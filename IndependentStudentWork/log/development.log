@@ -766,3 +766,460 @@ Processing by LabsController#index as HTML
 Completed 200 OK in 42ms (Views: 26.8ms | ActiveRecord: 1.0ms | Allocations: 13645)
 
 
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:53:04 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 5423)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8235)
+Completed 200 OK in 43ms (Views: 25.5ms | ActiveRecord: 1.1ms | Allocations: 13618)
+
+
+Started GET "/labs/1/edit" for 127.0.0.1 at 2022-01-12 21:53:05 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 4.6ms | Allocations: 1314)
+  Rendered labs/edit.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 3960)
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 0.4ms | Allocations: 6123)
+
+
+Started PATCH "/labs/1" for 127.0.0.1 at 2022-01-12 21:54:02 +0300
+Processing by LabsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №1", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить", "id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mLab Update (0.5ms)[0m  [1m[33mUPDATE "labs" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["title", "Лабораторная работа №1"], ["description", "Тестовое описание лабораторной работы."], ["updated_at", "2022-01-12 18:54:02.833068"], ["id", 1]]
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 41ms (ActiveRecord: 4.5ms | Allocations: 13876)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:02 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 851)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3117)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.3ms | Allocations: 3668)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:54:09 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.0ms | Allocations: 373)
+  Rendered labs/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 576)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2768)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 3433)
+
+
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:54:16 +0300
+Processing by LabsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №2", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.4ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Лабораторная работа №2"], ["description", "Тестовое описание лабораторной работы."], ["created_at", "2022-01-12 18:54:16.094471"], ["updated_at", "2022-01-12 18:54:16.094471"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 16ms (ActiveRecord: 3.5ms | Allocations: 3662)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:16 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 922)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3125)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 3595)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:54:17 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 0.9ms | Allocations: 332)
+  Rendered labs/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2632)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 3102)
+
+
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:54:23 +0300
+Processing by LabsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №3", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.5ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Лабораторная работа №3"], ["description", "Тестовое описание лабораторной работы."], ["created_at", "2022-01-12 18:54:23.182046"], ["updated_at", "2022-01-12 18:54:23.182046"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 21ms (ActiveRecord: 4.1ms | Allocations: 3544)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:23 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1021)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3225)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 3697)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:54:25 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.2ms | Allocations: 332)
+  Rendered labs/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2615)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 3083)
+
+
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:54:30 +0300
+Processing by LabsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №4", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.5ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Лабораторная работа №4"], ["description", "Тестовое описание лабораторной работы."], ["created_at", "2022-01-12 18:54:30.298888"], ["updated_at", "2022-01-12 18:54:30.298888"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 19ms (ActiveRecord: 4.4ms | Allocations: 3541)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:30 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3325)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 3798)
+
+
+Started GET "/labs/1/edit" for 127.0.0.1 at 2022-01-12 21:54:31 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.0ms | Allocations: 366)
+  Rendered labs/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 458)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2666)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 3681)
+
+
+Started PATCH "/labs/1" for 127.0.0.1 at 2022-01-12 21:54:34 +0300
+Processing by LabsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №1", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить", "id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:31:in `update'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.5ms | Allocations: 3399)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:34 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3324)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.1ms | Allocations: 3794)
+
+
+Started GET "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:54:34 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1014)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3106)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 4238)
+
+
+Started POST "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:54:41 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"B", "commit"=>"Сохранить", "id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.4ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "B"], ["updated_at", "2022-01-12 18:54:41.080888"], ["id", 2]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 19ms (ActiveRecord: 4.3ms | Allocations: 4178)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:41 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1124)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3327)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 3797)
+
+
+Started GET "/labs/3/mark" for 127.0.0.1 at 2022-01-12 21:54:42 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.1ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2857)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3862)
+
+
+Started POST "/labs/3/mark" for 127.0.0.1 at 2022-01-12 21:54:43 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"C", "commit"=>"Сохранить", "id"=>"3"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.5ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "C"], ["updated_at", "2022-01-12 18:54:43.274841"], ["id", 3]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 29ms (ActiveRecord: 6.3ms | Allocations: 4165)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:43 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3347)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 3819)
+
+
+Started GET "/labs/4/mark" for 127.0.0.1 at 2022-01-12 21:54:44 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.2ms | Allocations: 766)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2858)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 3863)
+
+
+Started POST "/labs/4/mark" for 127.0.0.1 at 2022-01-12 21:54:45 +0300
+Processing by LabsController#grade as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "grade"=>"D", "commit"=>"Сохранить", "id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+[31mUnpermitted parameters: :authenticity_token, :commit, :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mLab Update (0.3ms)[0m  [1m[33mUPDATE "labs" SET "grade" = ?, "updated_at" = ? WHERE "labs"."id" = ?[0m  [["grade", "D"], ["updated_at", "2022-01-12 18:54:45.967498"], ["id", 4]]
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:43:in `grade'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 16ms (ActiveRecord: 3.0ms | Allocations: 4163)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:54:45 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3333)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 3803)
+
+
+Started GET "/labs/1/edit" for 127.0.0.1 at 2022-01-12 21:55:26 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.0ms | Allocations: 366)
+  Rendered labs/edit.html.erb within layouts/application (Duration: 1.4ms | Allocations: 458)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2649)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 3655)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:55:45 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3369)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms | Allocations: 3834)
+
+
+Started GET "/labs/2/mark" for 127.0.0.1 at 2022-01-12 21:55:47 +0300
+Processing by LabsController#mark as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/mark.html.erb within layouts/application
+  Rendered labs/mark.html.erb within layouts/application (Duration: 1.1ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2857)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 3863)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:56:08 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3330)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 3795)
+
+
+Started DELETE "/labs/1" for 127.0.0.1 at 2022-01-12 21:56:26 +0300
+Processing by LabsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:61:in `find_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mLab Destroy (0.4ms)[0m  [1m[31mDELETE FROM "labs" WHERE "labs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 16ms (ActiveRecord: 3.2ms | Allocations: 3139)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:56:26 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1027)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3230)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 3698)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2022-01-12 21:58:21 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 0.9ms | Allocations: 332)
+  Rendered labs/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2615)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 3083)
+
+
+Started POST "/labs" for 127.0.0.1 at 2022-01-12 21:58:59 +0300
+Processing by LabsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"Лабораторная работа №5", "description"=>"Тестовое описание лабораторной работы."}, "commit"=>"Сохранить"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mLab Create (0.5ms)[0m  [1m[32mINSERT INTO "labs" ("title", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Лабораторная работа №5"], ["description", "Тестовое описание лабораторной работы."], ["created_at", "2022-01-12 18:58:59.361759"], ["updated_at", "2022-01-12 18:58:59.361759"], ["user_id", 1]]
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 15ms (ActiveRecord: 3.1ms | Allocations: 3521)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-12 21:58:59 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:19
+  Rendered labs/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1129)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3349)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 3820)
+
+
