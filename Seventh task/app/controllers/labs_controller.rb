@@ -1,6 +1,6 @@
 class LabsController < ApplicationController
   before_action :find_lab, only: %i[show update destroy edit mark grade]
-  before_action :authenticate_admin!
+
   def index
     @labs = Lab.all
   end
@@ -18,7 +18,7 @@ class LabsController < ApplicationController
 
     if @lab.save
       redirect_to root_url
-      flash[:success] = "Лабораторная успешно создана"
+      flash[:success] = "Лабораторная работа была создана успешно"
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class LabsController < ApplicationController
   def update
     if (@lab.update(lab_params))
       redirect_to root_url
-      flash[:success] = "Лабораторная успешно обновлена"
+      flash[:success] = "Лабораторная работа была успешно обновлена"
     else
       render 'edit'
     end
@@ -42,7 +42,7 @@ class LabsController < ApplicationController
   def grade
     if (@lab.update(params.permit(:grade)))
       redirect_to root_url
-      flash[:success] = "Лабораторная успешно оценена"
+      flash[:success] = "Лабораторная работа была успешно оценена"
     else
       render 'mark'
     end
@@ -52,7 +52,7 @@ class LabsController < ApplicationController
     @lab.destroy
 
     redirect_to action: :index
-    flash[:success] = "Лабораторная успешно удалена"
+    flash[:success] = "Лабораторная работа была успешно удалена"
   end
 
   private
